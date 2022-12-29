@@ -17,14 +17,14 @@ async def get(request: Request):
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
-    i=0
+    id = 0
     while True:
-        i+=1
+        id += 1
         data = await websocket.receive_text()
         
         await websocket.send_json({
                 "Message": f"{data}",
-                "ID:": i
+                "ID:": id
             })
 
 
