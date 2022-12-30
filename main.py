@@ -20,11 +20,11 @@ async def websocket_endpoint(websocket: WebSocket):
     id = 0
     while True:
         id += 1
-        data = await websocket.receive_text()
+        data = await websocket.receive_json()
         
         await websocket.send_json({
-                "Message": f"{data}",
-                "ID:": id
+                 id : f"{data}",
+                
             })
 
 
